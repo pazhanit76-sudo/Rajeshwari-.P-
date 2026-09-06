@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rajeshwari P — Finance Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF9F5;
+    --ink:#1B1B16;
+    --green:#1F3D2B;
+    --green-light:#2C5540;
+    --gold:#B8935F;
+    --rule:#D8D5CC;
+    --muted:#6E6C62;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .rule{border:none;border-top:1px solid var(--rule);}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,249,245,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;max-width:1080px;margin:0 auto;}
+  .logo{font-family:'Fraunces',serif;font-size:20px;font-weight:600;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-links a{font-size:14px;color:var(--muted);transition:color .2s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    border:1px solid var(--ink);
+    padding:9px 20px;
+    font-size:14px;
+    border-radius:2px;
+    transition:background .2s, color .2s;
+  }
+  .nav-cta:hover{background:var(--ink);color:var(--paper);}
+  .nav-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--ink);}
+
+  /* HERO */
+  .hero{
+    padding:96px 0 64px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:48px;
+    align-items:end;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-index{font-size:13px;color:var(--muted);letter-spacing:.02em;margin-bottom:28px;}
+  .hero h1{
+    font-size:clamp(48px,7vw,84px);
+    line-height:0.98;
+    max-width:640px;
+  }
+  .hero-sub{
+    margin-top:28px;
+    max-width:440px;
+    color:var(--muted);
+    font-size:16.5px;
+  }
+  .hero-figure{
+    text-align:right;
+    border-left:1px solid var(--rule);
+    padding-left:40px;
+  }
+  .hero-figure .num{
+    font-family:'Fraunces',serif;
+    font-size:64px;
+    color:var(--green);
+    line-height:1;
+  }
+  .hero-figure .cap{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:8px;
+  }
+  .hero-figure .num2{margin-top:32px;}
+
+  .marquee-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:28px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .tag{
+    border:1px solid var(--rule);
+    padding:7px 16px;
+    font-size:13.5px;
+    color:var(--muted);
+    border-radius:2px;
+  }
+
+  /* SECTION SHELL */
+  section{padding:80px 0;border-bottom:1px solid var(--rule);}
+  .section-head{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+    margin-bottom:44px;
+  }
+  .section-num{font-size:13px;color:var(--gold);font-family:'Inter',sans-serif;}
+  .section-head h2{font-size:34px;max-width:520px;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:200px 1fr;gap:32px;}
+  .about-body p{max-width:620px;color:var(--ink);font-size:16px;margin-bottom:16px;}
+  .about-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    margin-top:40px;
+    border-top:1px solid var(--rule);
+  }
+  .stat{padding:24px 24px 0 0;border-right:1px solid var(--rule);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Fraunces',serif;font-size:36px;color:var(--green);}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:4px;}
+
+  /* EXPERIENCE / TIMELINE */
+  .ledger{width:100%;border-collapse:collapse;}
+  .ledger-row{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+  }
+  .ledger-row:last-child{border-bottom:1px solid var(--rule);}
+  .ledger-role{font-size:13px;color:var(--muted);}
+  .ledger-title{font-family:'Fraunces',serif;font-size:20px;margin-bottom:6px;}
+  .ledger-org{color:var(--green);font-size:14.5px;margin-bottom:10px;}
+  .ledger-desc{color:var(--muted);font-size:15px;max-width:560px;}
+  .ledger-desc li{margin-bottom:4px;margin-left:18px;}
+
+  /* EDUCATION */
+  .edu-row{
+    display:grid;
+    grid-template-columns:200px 1fr 100px;
+    gap:32px;
+    padding:22px 0;
+    border-top:1px solid var(--rule);
+    align-items:baseline;
+  }
+  .edu-row:last-child{border-bottom:1px solid var(--rule);}
+  .edu-year{font-size:13px;color:var(--muted);}
+  .edu-name{font-family:'Fraunces',serif;font-size:19px;}
+  .edu-school{font-size:14px;color:var(--muted);margin-top:3px;}
+  .edu-score{text-align:right;font-size:14.5px;color:var(--green);font-weight:500;}
+
+  /* PROJECT */
+  .project-card{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+    padding:28px 0;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .project-card h3{font-family:'Fraunces',serif;font-size:22px;margin-bottom:10px;}
+  .project-card p{color:var(--muted);max-width:560px;font-size:15px;}
+
+  /* CERTIFICATIONS GRID */
+  .cert-grid{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+  }
+  .cert-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+  }
+  .cert-item{
+    padding:18px 24px 18px 0;
+    border-top:1px solid var(--rule);
+    font-size:15px;
+  }
+  .cert-item:nth-child(odd){padding-right:32px;}
+  .cert-item .c-name{font-weight:500;}
+  .cert-item .c-sub{color:var(--muted);font-size:13.5px;margin-top:2px;}
+
+  /* SKILLS */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+  }
+  .skill-cats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px 32px;
+  }
+  .skill-cat h4{font-size:14px;color:var(--gold);margin-bottom:12px;font-weight:600;font-family:'Inter',sans-serif;}
+  .skill-cat ul{list-style:none;}
+  .skill-cat li{
+    padding:10px 0;
+    border-top:1px solid var(--rule);
+    font-size:15px;
+  }
+
+  /* ACHIEVEMENTS */
+  .ach-grid{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:32px;
+  }
+  .ach-list{list-style:none;}
+  .ach-list li{
+    padding:18px 0;
+    border-top:1px solid var(--rule);
+    font-size:15.5px;
+    display:flex;
+    gap:16px;
+  }
+  .ach-list li:last-child{border-bottom:1px solid var(--rule);}
+  .ach-list .dash{color:var(--gold);}
+
+  /* CONTACT */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+  }
+  .contact-info h2{font-size:38px;max-width:380px;margin-bottom:20px;}
+  .contact-info p{color:var(--muted);max-width:380px;margin-bottom:28px;}
+  .contact-detail{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-top:1px solid var(--rule);
+    font-size:14.5px;
+  }
+  .contact-detail:last-child{border-bottom:1px solid var(--rule);}
+  .contact-detail span:first-child{color:var(--muted);}
+  form{display:flex;flex-direction:column;gap:18px;}
+  label{font-size:13px;color:var(--muted);margin-bottom:6px;display:block;}
+  input,textarea{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--rule);
+    padding:10px 0;
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    color:var(--ink);
+    outline:none;
+  }
+  input:focus,textarea:focus{border-bottom-color:var(--green);}
+  textarea{resize:vertical;min-height:80px;}
+  .submit-btn{
+    margin-top:8px;
+    align-self:flex-start;
+    background:var(--green);
+    color:var(--paper);
+    border:none;
+    padding:13px 28px;
+    font-size:14.5px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background .2s;
+    font-family:'Inter',sans-serif;
+  }
+  .submit-btn:hover{background:var(--green-light);}
+
+  footer{padding:32px 0;text-align:center;font-size:13px;color:var(--muted);}
+
+  /* MOBILE */
+  @media (max-width:820px){
+    .nav-links{display:none;}
+    .hero{grid-template-columns:1fr;}
+    .hero-figure{border-left:none;border-top:1px solid var(--rule);padding-left:0;padding-top:24px;text-align:left;display:flex;gap:40px;}
+    .section-head,.about-grid,.ledger-row,.edu-row,.project-card,.cert-grid,.skills-grid,.ach-grid,.contact-grid{
+      grid-template-columns:1fr;
+    }
+    .edu-row{gap:6px;}
+    .edu-score{text-align:left;}
+    .cert-list,.skill-cats{grid-template-columns:1fr;}
+    .about-stats{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:20px;}
+    .contact-grid{gap:40px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Rajeshwari <span>P</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Contact Me</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-bottom:none;">
+    <div>
+      <div class="hero-index">Portfolio — Statement of Profile</div>
+      <h1>Aspiring finance<br>professional.</h1>
+      <p class="hero-sub">MBA Finance student with a B.Com foundation, practical exposure across banking and manufacturing, and a growing toolkit in financial analysis, accounting, and enterprise software.</p>
+    </div>
+    <div class="hero-figure">
+      <div class="num">2</div>
+      <div class="cap">Internships completed</div>
+      <div class="num num2">6</div>
+      <div class="cap">Certifications earned</div>
+    </div>
+  </section>
+
+  <div class="marquee-row">
+    <div class="tag">Tally ERP 9</div>
+    <div class="tag">MS Excel</div>
+    <div class="tag">SEBI Certified</div>
+    <div class="tag">Oracle SCM</div>
+    <div class="tag">Bajaj Finserv</div>
+    <div class="tag">MS PowerPoint</div>
+  </div>
+
+  <section id="about">
+    <div class="section-head">
+      <div class="section-num">01 — About</div>
+      <h2>Finance isn't just my degree — it's where I want to build my career.</h2>
+    </div>
+    <div class="about-grid">
+      <div></div>
+      <div class="about-body">
+        <p>I'm a dedicated MBA Finance student with a strong academic background in Commerce and Finance. I'm skilled in financial analysis, accounting principles, business communication, and problem-solving, and comfortable working across Microsoft Word, Excel, and PowerPoint.</p>
+        <p>My practical exposure comes from internships in a Cooperative Bank and a signage manufacturing company, where I learned how financial processes and workplace coordination actually function day to day. I'm eager to keep developing my professional and technical skills while contributing to organisational growth.</p>
+        <div class="about-stats">
+          <div class="stat"><div class="num">7.5</div><div class="lbl">MBA CGPA</div></div>
+          <div class="stat"><div class="num">76%</div><div class="lbl">B.Com, final semester</div></div>
+          <div class="stat"><div class="num">2</div><div class="lbl">Languages — Tamil, English</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head">
+      <div class="section-num">02 — Experience</div>
+      <h2>Internships that shaped how I understand finance in practice.</h2>
+    </div>
+    <div>
+      <div class="ledger-row">
+        <div class="ledger-role">Internship</div>
+        <div>
+          <div class="ledger-title">Intern</div>
+          <div class="ledger-org">Cooperative Bank</div>
+          <ul class="ledger-desc">
+            <li>Gained practical exposure to banking operations and financial processes.</li>
+            <li>Assisted in day-to-day transaction handling and record maintenance under supervision.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ledger-row">
+        <div class="ledger-role">Internship</div>
+        <div>
+          <div class="ledger-title">Intern</div>
+          <div class="ledger-org">LP Flex Signage Systems India Pvt. Ltd.</div>
+          <ul class="ledger-desc">
+            <li>Supported administrative and operational activities during the internship period.</li>
+            <li>Developed workplace communication and coordination skills in a manufacturing environment.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head">
+      <div class="section-num">03 — Education</div>
+      <h2>Academic record.</h2>
+    </div>
+    <div>
+      <div class="edu-row">
+        <div class="edu-year">2025–present</div>
+        <div>
+          <div class="edu-name">MBA — Finance</div>
+          <div class="edu-school">Shrimati Indira Gandhi College</div>
+        </div>
+        <div class="edu-score">CGPA 7.5</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year">2022–2025</div>
+        <div>
+          <div class="edu-name">B.Com — General</div>
+          <div class="edu-school">Sri Sarada Mahavidyalayam Arts and Science College for Women, Annamalai University</div>
+        </div>
+        <div class="edu-score">76%</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year">2022</div>
+        <div>
+          <div class="edu-name">Higher Secondary Certificate</div>
+          <div class="edu-school">NLC Girls Higher Secondary School</div>
+        </div>
+        <div class="edu-score">63%</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-year">2020</div>
+        <div>
+          <div class="edu-name">SSLC</div>
+          <div class="edu-school">Government High School</div>
+        </div>
+        <div class="edu-score">60.8%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head">
+      <div class="section-num">04 — Project</div>
+      <h2>Applied academic work.</h2>
+    </div>
+    <div class="project-card">
+      <div class="edu-year">Academic</div>
+      <div>
+        <h3>Herbal Product Development</h3>
+        <p>Developed an organic herbal product as part of an academic project, analysing and working to prevent potential side effects using raw plant materials.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="section-head">
+      <div class="section-num">05 — Certifications</div>
+      <h2>Courses and certifications completed.</h2>
+    </div>
+    <div class="cert-grid">
+      <div></div>
+      <div class="cert-list">
+        <div class="cert-item"><div class="c-name">Naan Mudhalvan 2025</div><div class="c-sub">Oracle Supply Chain Management, MS Office Essentials, Employability Skills</div></div>
+        <div class="cert-item"><div class="c-name">Tally ERP 9</div></div>
+        <div class="cert-item"><div class="c-name">Diploma in Entrepreneurship Development (EDP)</div></div>
+        <div class="cert-item"><div class="c-name">Bajaj Finserv</div><div class="c-sub">Financial Services Certification</div></div>
+        <div class="cert-item"><div class="c-name">SEBI Certification</div><div class="c-sub">Securities and Exchange Board of India</div></div>
+        <div class="cert-item"><div class="c-name">Viksit Bharat 2047</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head">
+      <div class="section-num">06 — Skills</div>
+      <h2>What I bring to the table.</h2>
+    </div>
+    <div class="skills-grid">
+      <div></div>
+      <div class="skill-cats">
+        <div class="skill-cat">
+          <h4>Finance</h4>
+          <ul>
+            <li>Financial Analysis</li>
+            <li>Accounting Principles</li>
+            <li>Tally ERP 9</li>
+          </ul>
+        </div>
+        <div class="skill-cat">
+          <h4>Technical</h4>
+          <ul>
+            <li>MS Word</li>
+            <li>MS Excel</li>
+            <li>PowerPoint</li>
+          </ul>
+        </div>
+        <div class="skill-cat">
+          <h4>Professional Competencies</h4>
+          <ul>
+            <li>Adaptability & Learning Agility</li>
+            <li>Time & Priority Management</li>
+          </ul>
+        </div>
+        <div class="skill-cat">
+          <h4>Communication</h4>
+          <ul>
+            <li>Business Communication</li>
+            <li>Problem-Solving</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="section-head">
+      <div class="section-num">07 — Achievements</div>
+      <h2>Beyond the classroom.</h2>
+    </div>
+    <div class="ach-grid">
+      <div></div>
+      <ul class="ach-list">
+        <li><span class="dash">—</span> Successfully completed internship and professional certification programmes.</li>
+        <li><span class="dash">—</span> NSS Volunteer.</li>
+        <li><span class="dash">—</span> Active participation in cultural, event organisation, and coordination activities.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:none;">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-num">08 — Contact</div>
+        <h2>Let's talk finance, opportunities, or where I can help.</h2>
+        <p>Based in Neyveli, Cuddalore District, Tamil Nadu. Open to internships and entry-level roles in finance and accounting.</p>
+        <div class="contact-detail"><span>Phone</span><span>+91 8667725339</span></div>
+        <div class="contact-detail"><span>Email</span><span>pazhanit76@email.com</span></div>
+        <div class="contact-detail"><span>LinkedIn</span><span>linkedin.com/in/rajeshwari-p-6286862b3</span></div>
+        <div class="contact-detail"><span>Location</span><span>Neyveli, Tamil Nadu</span></div>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thanks for reaching out — this is a demo form.');">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+</div>
+
+<footer>© 2026 Rajeshwari P. Built with care.</footer>
+
+</body>
+</html>
